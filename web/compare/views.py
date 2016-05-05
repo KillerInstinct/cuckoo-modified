@@ -84,7 +84,7 @@ def left(request, left_id):
                               context_instance=RequestContext(request))
 
 @require_safe
-def hash(request, left_id, right_hash):
+def hash_search(request, left_id, right_hash):
     if enabledconf["mongodb"]:
         left = results_db.analysis.find_one({"info.id": int(left_id)}, {"target": 1, "info": 1})
     if enabledconf["elasticsearchdb"]:

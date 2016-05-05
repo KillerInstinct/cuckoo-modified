@@ -3,16 +3,18 @@
 # See the file 'docs/LICENSE' for copying permission.
 
 from django.conf.urls import include, url
+from dashboard.views import index
+from analysis.views import get_file, filereport, full_memory_dump_file, full_memory_dump_strings
 
 urlpatterns = [
-    url(r"^$", "dashboard.views.index"),
+    url(r"^$", index),
     url(r"^analysis/", include("analysis.urls")),
     url(r"^compare/", include("compare.urls")),
     url(r"^submit/", include("submission.urls")),
-    url(r"^file/(?P<category>\w+)/(?P<task_id>\d+)/(?P<dlfile>\w+)/$", "analysis.views.file"),
-    url(r"^filereport/(?P<task_id>\w+)/(?P<category>\w+)/$", "analysis.views.filereport"),
-    url(r"^full_memory/(?P<analysis_number>\w+)/$", "analysis.views.full_memory_dump_file"),
-    url(r"^full_memory_strings/(?P<analysis_number>\w+)/$", "analysis.views.full_memory_dump_strings"),
+    url(r"^file/(?P<category>\w+)/(?P<task_id>\d+)/(?P<dlfile>\w+)/$", get_file),
+    url(r"^filereport/(?P<task_id>\w+)/(?P<category>\w+)/$", filereport),
+    url(r"^full_memory/(?P<analysis_number>\w+)/$", full_memory_dump_file),
+    url(r"^full_memory_strings/(?P<analysis_number>\w+)/$", full_memory_dump_strings),
     url(r"^dashboard/", include("dashboard.urls")),
     url(r"^api/", include("api.urls")),
 ]

@@ -764,7 +764,7 @@ def report(request, task_id):
                              context_instance=RequestContext(request))
 
 @require_safe
-def file(request, category, task_id, dlfile):
+def get_file(request, category, task_id, dlfile):
     file_name = dlfile
     cd = ""
 

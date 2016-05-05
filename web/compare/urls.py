@@ -3,9 +3,10 @@
 # See the file "docs/LICENSE" for copying permission.
 
 from django.conf.urls import url
+from compare.views import left, both, hash_search
 
 urlpatterns = [
-    url(r"^(?P<left_id>\d+)/$", "compare.views.left"),
-    url(r"^(?P<left_id>\d+)/(?P<right_id>\d+)/$", "compare.views.both"),
-    url(r"^(?P<left_id>\d+)/(?P<right_hash>\w+)/$", "compare.views.hash"),
+    url(r"^(?P<left_id>\d+)/$", left),
+    url(r"^(?P<left_id>\d+)/(?P<right_id>\d+)/$", both),
+    url(r"^(?P<left_id>\d+)/(?P<right_hash>\w+)/$", hash_search),
 ]
