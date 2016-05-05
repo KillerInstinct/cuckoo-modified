@@ -2,9 +2,9 @@
 # This file is part of Cuckoo Sandbox - http://www.cuckoosandbox.org
 # See the file "docs/LICENSE" for copying permission.
 
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
-urlpatterns = patterns("",
+urlpatterns = [
     url(r"^$", "api.views.index"),
     url(r"^tasks/create/file/$", "api.views.tasks_create_file"),
     url(r"^tasks/create/url/$", "api.views.tasks_create_url"),
@@ -44,7 +44,7 @@ urlpatterns = patterns("",
     url(r"^machines/list/$", "api.views.machines_list"),
     url(r"^machines/view/(?P<name>[\w$-/:-?{-~!^_`\[\]]+)/$", "api.views.machines_view"),
     url(r"^cuckoo/status/$", "api.views.cuckoo_status"),
-    url(r"^tasks/get/rollingsuri/(?P<window>\d+)/$", "api.views.tasks_rollingsuri"),  
+    url(r"^tasks/get/rollingsuri/(?P<window>\d+)/$", "api.views.tasks_rollingsuri"),
     url(r"^tasks/get/rollingshrike/(?P<window>\d+)/$", "api.views.tasks_rollingshrike"),
-    url(r"^tasks/get/rollingshrike/(?P<window>\d+)/(?P<msgfilter>[\w$-/:-?{-~!^_`\[\]\s\x5c]+)/$", "api.views.tasks_rollingshrike"), 
-)
+    url(r"^tasks/get/rollingshrike/(?P<window>\d+)/(?P<msgfilter>[\w$-/:-?{-~!^_`\[\]\s\x5c]+)/$", "api.views.tasks_rollingshrike"),
+]

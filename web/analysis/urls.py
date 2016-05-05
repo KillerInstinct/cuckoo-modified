@@ -2,9 +2,9 @@
 # This file is part of Cuckoo Sandbox - http://www.cuckoosandbox.org
 # See the file "docs/LICENSE" for copying permission.
 
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
-urlpatterns = patterns("",
+urlpatterns = [
     url(r"^$", "analysis.views.index"),
     url(r"^page/(?P<page>\d+)/$", "analysis.views.index"),
     url(r"^(?P<task_id>\d+)/$", "analysis.views.report"),
@@ -23,4 +23,4 @@ urlpatterns = patterns("",
     url(r"^procdump/(?P<task_id>\d+)/(?P<process_id>\d+)/(?P<start>\w+)/(?P<end>\w+)/$", "analysis.views.procdump"),
     url(r"^(?P<task_id>\d+)/pcapstream/(?P<conntuple>[.,\w]+)/$", "analysis.views.pcapstream"),
     url(r"^(?P<task_id>\d+)/comments/$", "analysis.views.comments"),
-)
+]

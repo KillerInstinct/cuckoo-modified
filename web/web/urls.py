@@ -2,9 +2,9 @@
 # This file is part of Cuckoo Sandbox - http://www.cuckoosandbox.org
 # See the file 'docs/LICENSE' for copying permission.
 
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 
-urlpatterns = patterns("",
+urlpatterns = [
     url(r"^$", "dashboard.views.index"),
     url(r"^analysis/", include("analysis.urls")),
     url(r"^compare/", include("compare.urls")),
@@ -15,4 +15,4 @@ urlpatterns = patterns("",
     url(r"^full_memory_strings/(?P<analysis_number>\w+)/$", "analysis.views.full_memory_dump_strings"),
     url(r"^dashboard/", include("dashboard.urls")),
     url(r"^api/", include("api.urls")),
-)
+]
