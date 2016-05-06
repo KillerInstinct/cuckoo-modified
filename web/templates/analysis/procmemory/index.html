@@ -41,13 +41,13 @@
                         {% if proc.file %}
                             <tr>
                                 <th>Full Dump</th>
-                                <td><a class="btn btn-primary btn-small" href="{% url "analysis.views.file" "memdump" analysis.info.id proc.pid %}">Download</a></td>
+                                <td><a class="btn btn-primary btn-small" href="{% url "analysis.views.get_file" "memdump" analysis.info.id proc.pid %}">Download</a></td>
                             </tr>
                         {% endif %}
                         {% if proc.strings_path %}
                             <tr>
                                 <th>Process Strings</th>
-                                <td><a class="btn btn-primary btn-small" href="{% url "analysis.views.file" "memdumpstrings" analysis.info.id proc.pid %}">Download</a></td>
+                                <td><a class="btn btn-primary btn-small" href="{% url "analysis.views.get_file" "memdumpstrings" analysis.info.id proc.pid %}">Download</a></td>
                             </tr>
                         {% endif %}
                     </table>
